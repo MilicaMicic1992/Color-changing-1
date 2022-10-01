@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boje JS</title>
+</head>
+<style>
+    #square {
+        width: 100px;
+        height: 100px;
+        border: 2px solid black;
+        margin: 5px;
+    }
+</style>
+<body>
+    <p>
+        R: <input id="r" type="number" min="0" max="255" value="100">
+        G: <input id="g" type="number" min="0" max="255" value="100">
+        B: <input id="b" type="number" min="0" max="255" value="100">
+    </p>
+    <p><button id="change">Change color</button></p>
+    <div id="square" ></div>
+
+    <script>
+            function change_color () {
+                const input_r = document.getElementById("r")
+                const input_g = document.getElementById("g")
+                const input_b = document.getElementById("b")
+                const r = Number(input_r.value)
+                const g = Number(input_g.value)
+                const b = Number(input_b.value)
+
+                    if (( r >= 0 && r <= 255) && (g >= 0 && g <= 255) && (b >= 0 && b <= 255)){
+                        const div_square = document.getElementById("square")
+                        div_square.style.backgroundColor =
+                        "rgb(" + r + "," + g + "," + b +")"
+                    }else if(r < 0 || r > 255){
+                        alert("Broj mora biti u rasponu od 0 do 255")
+                    }else if(g < 0 || g > 255){
+                        alert("Broj mora biti u rasponu od 0 do 255")
+                    }else if(b < 0 || b > 255){
+                        alert("Broj mora biti u rasponu od 0 do 255")
+                    }
+            }
+            const button_change = document.getElementById("change")
+            button_change.onclick = change_color
+    </script>
+</body>
+</html>
+
+
